@@ -1,5 +1,5 @@
 #include "ofApp.h"
-#include "spectrum.h"
+#include "Spectrum.h"
 
 /* ******************************************
 SPECTRUM class - by Darokin (Adrien Rebuzzi)
@@ -7,7 +7,7 @@ made for graphing data from ECG/EKG or else
 v0.1 08/06/2019
  *******************************************/
 
-spectrum::spectrum(int _x, int _y, int _tx, int _ty, int _w, ofColor _colBG, int _colBar) {
+Spectrum::Spectrum(int _x, int _y, int _tx, int _ty, int _w, ofColor _colBG, int _colBar) {
 	this->startX = _x;
 	this->startY = _y;
 	this->totalWidth = _tx;
@@ -21,14 +21,14 @@ spectrum::spectrum(int _x, int _y, int _tx, int _ty, int _w, ofColor _colBG, int
 	cout << "SPECTRUM [" << this->barWidth << " sur " << this->totalWidth << "]\t" << endl;
 }
 
-void spectrum::addData(int val) {
+void Spectrum::addData(int val) {
 	this->freqs.insert(this->freqs.begin(), val);
 	if (this->freqs.size() > NB_DATA) {
 		this->freqs.pop_back();
 	}
 }
 
-void spectrum::drawGraph() {
+void Spectrum::drawGraph() {
 	ofSetColor(this->colBG);
 	ofDrawRectangle(this->startX, this->startY, this->totalWidth, this->totalHeight);
 
