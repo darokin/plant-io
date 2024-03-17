@@ -10,24 +10,24 @@ using namespace std;
 
 class ofxSimpleSerial : public ofSerial{
 public:
-	string message;
+    string message;
 
-	ofxSimpleSerial();
-	void sendRequest();
-	void startContinuousRead(bool writeByte = true);
-	void stopContinuousRead();
-	void writeString(string message);
+    ofxSimpleSerial();
+    void sendRequest();
+    void startContinuousRead(bool writeByte = true);
+    void stopContinuousRead();
+    void writeString(string message);
 
-	ofEvent<string> NEW_MESSAGE;
+    ofEvent<string> NEW_MESSAGE;
 
 protected:
-	string			messageBuffer;
-	unsigned char	bytesReturned[NUM_BYTES];
-	bool			continuousRead;
-	bool			bWriteByte;
-	void			initSetup();
-	void			update(ofEventArgs & args);
-	void			read();
+    string			messageBuffer;
+    unsigned char	bytesReturned[NUM_BYTES];
+    bool			continuousRead;
+    bool			bWriteByte;
+    void			initSetup();
+    void			update(ofEventArgs & args);
+    void			read();
 };
 
 #endif
